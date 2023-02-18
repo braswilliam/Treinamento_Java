@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "out/production/JavaNelioAlves/edu/william/java/matrizes/aula01",
+        "out/production/JavaNelioAlves/edu/william/java/collections/exercicios/ex01",
+        "out/production/JavaNelioAlves/edu/william/java/matrizes/aula2"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
+}
