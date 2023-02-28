@@ -1,15 +1,15 @@
 package edu.william.java.heranca.aula1;
 
-public class Acount {
+public class Account {
 
     private Integer number;
     private String holder;
-    private Double balance;
+    protected Double balance;
 
-    public Acount() {
+    public Account() {
     }
 
-    public Acount(Integer number, String holder, Double balance) {
+    public Account(Integer number, String holder, Double balance) {
         this.number = number;
         this.holder = holder;
         this.balance = balance;
