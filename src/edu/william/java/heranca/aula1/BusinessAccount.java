@@ -28,4 +28,10 @@ public class BusinessAccount extends Account {
     }
 
 
+    public final void withdraw(double amount) {
+        System.out.println("\nSobreposição BusinessAccount");
+        //super.withdraw(amount);
+        balance -= amount - 2.0;
+
+    }
 }

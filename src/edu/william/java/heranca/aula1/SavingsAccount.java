@@ -3,11 +3,10 @@ package edu.william.java.heranca.aula1;
 public class SavingsAccount extends Account{
 
 
-    public double interestRate;
-
+    private double interestRate;
 
     public SavingsAccount() {
-        super
+        super();
     }
 
     public SavingsAccount(Integer number, String holder, Double balance, double interestRate) {
@@ -28,5 +27,13 @@ public class SavingsAccount extends Account{
     public void updateBalance() {
         this.balance += this.balance * this.interestRate;
     }
+
+    @Override //sobreposição de método
+    public final void withdraw(double amount) {
+       balance -= amount;
+        System.out.println("\nSobreposição SavingsAccount");
+    }
+
+
 
 }
