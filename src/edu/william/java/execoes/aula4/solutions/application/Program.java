@@ -1,6 +1,7 @@
 package edu.william.java.execoes.aula4.solutions.application;
 
 import edu.william.java.execoes.aula4.solutions.entities.Reservation;
+import edu.william.java.execoes.aula4.solutions.exceptions.DomainException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,10 +42,12 @@ public class Program {
         catch (ParseException e ){
             System.out.println("Invalid date format");
         }
-        catch (IllegalArgumentException e) {
+        catch (DomainException e) {
             System.out.println("Error in reservation: " + e.getMessage());
         }
-
+        catch (RuntimeException e) {
+            System.out.println("Unexpected error!");
+        }
         sc.close();
     }
 }

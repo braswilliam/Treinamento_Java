@@ -1,5 +1,7 @@
 package edu.william.java.execoes.aula4.solutions.entities;
 
+import edu.william.java.execoes.aula4.solutions.exceptions.DomainException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -12,6 +14,11 @@ public class Reservation {
     private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
+
+        if (!checkOut.after(checkIn)) {
+            throw new DomainException("Check-out date must be after check-in date");
+        }
+
         this.roomNumber = roomNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -44,10 +51,10 @@ public class Reservation {
 
         Date now = new Date();
         if(checkIn.before(now)|| checkOut.before(now)) {
-            throw new IllegalArgumentException("Reservation dates for update must be future dates");
+            throw new DomainException("Reservation dates for update must be future dates");
         }
         if(!checkOut.after(checkIn)){
-            throw new IllegalArgumentException("Check-out date must be after check-in date");
+            throw new DomainException("Check-out date must be after check-in date");
         }
         this.checkIn = checkIn;
         this.checkOut = checkOut;
