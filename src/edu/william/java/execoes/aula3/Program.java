@@ -1,4 +1,4 @@
-package application;
+package edu.william.java.execoes.aula3;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
