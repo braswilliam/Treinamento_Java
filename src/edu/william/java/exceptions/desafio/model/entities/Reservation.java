@@ -1,4 +1,6 @@
-package edu.william.java.exeptions.desafio.model.entities;
+package edu.william.java.exceptions.desafio.model.entities;
+
+import edu.william.java.exceptions.desafio.model.exceptions.DomaisnExeption;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +15,11 @@ public class Reservation {
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Reservation(Integer rooNumber, Date checkIn, Date checkOut) {
+
+        if (!checkOut.after(checkIn)) {
+            throw new DomaisnExeption("Check-out date must be after check-in date");
+        }
+
         this.rooNumber = rooNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -41,21 +48,19 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
-    public String updateDates(Date checkIn, Date checkOut) {
+    public void updateDates(Date checkIn, Date checkOut) {
 
         Date now = new Date();
         if (checkIn.before(now) || checkOut.before(now)) {
-           return "Reservation dates for update must be future dates";
+           throw new DomaisnExeption("Reservation dates for update must be future dates");
         }
 
         if (!checkOut.after(checkIn)) {
-            return "Check-out date must be after check-in date";
+            throw new DomaisnExeption("Check-out date must be after check-in date");
         }
 
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-
-        return null;
     }
 
     @Override
